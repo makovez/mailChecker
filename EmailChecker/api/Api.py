@@ -10,7 +10,7 @@ URL = "https://aj-https.my.com/cgi-bin/auth?model=&simple=1"
 class Api:
     def __init__(self, combo_path="combos/combo.txt", log=True):
         self.credentials = ComboReader().read(combo_path)
-        self.session = ClientSession(connector=TCPConnector(verify_ssl=False))
+        self.session = ClientSession(connector=TCPConnector(verify_ssl=False, limit=None))
         self.cw = ComboWriter()
 
     async def login(self, user, pwd):
